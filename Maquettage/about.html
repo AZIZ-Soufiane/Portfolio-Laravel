@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soufiane - About Me</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .animate-fade-in-up {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        .animate-fade-in {
+            animation: fadeIn 1s ease-out forwards;
+        }
+
+        .animate-slide-in-left {
+            animation: slideInLeft 0.8s ease-out forwards;
+        }
+
+        .animation-delay-200 {
+            animation-delay: 0.2s;
+            opacity: 0;
+        }
+
+        .animation-delay-400 {
+            animation-delay: 0.4s;
+            opacity: 0;
+        }
+
+        .animation-delay-600 {
+            animation-delay: 0.6s;
+            opacity: 0;
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .card-hover {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .card-hover:hover {
+            transform: translateY(-8px);
+        }
+
+        .skill-badge {
+            transition: all 0.3s ease;
+        }
+
+        .skill-badge:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 25px -5px rgba(102, 126, 234, 0.3);
+        }
+
+        .nav-link {
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .section-visible {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 pt-16">
+    
+    <!-- Navigation (Copied from index.html, update active link if desired) -->
+    <nav class="fixed top-0 w-full bg-white/90 backdrop-blur-md shadow-sm z-50 animate-fade-in">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <a href="index.html" class="text-2xl font-bold gradient-text">Soufiane</a>
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="nav-link text-gray-700 hover:text-blue-600 font-medium">Home</a>
+                    <a href="about.html" class="nav-link text-blue-600 font-medium border-b-2 border-blue-600">About</a>
+                    <a href="projects.html" class="nav-link text-gray-700 hover:text-blue-600 font-medium">Projects</a>
+                    
+                </div>
+                <button id="mobile-menu-btn" class="md:hidden text-gray-700">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
+            <div class="px-4 py-3 space-y-3">
+                <a href="index.html" class="block text-gray-700 hover:text-blue-600 font-medium">Home</a>
+                <a href="about.html" class="block text-blue-600 font-medium">About</a>
+                <a href="projects.html" class="block text-gray-700 hover:text-blue-600 font-medium">Projects</a>
+                
+            </div>
+        </div>
+    </nav>
+
+    <!-- About Section -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4 animate-fade-in-up">About Me</h1>
+                <div class="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto rounded-full animate-fade-in-up animation-delay-200"></div>
+            </div>
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="space-y-6 animate-slide-in-left">
+                    <h3 class="text-2xl font-bold text-gray-900">Full Stack Developer with a Passion for Innovation</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        I'm a dedicated developer with extensive experience in building modern web applications. My journey in software development has equipped me with a versatile skill set spanning both frontend and backend technologies. I am proficient in JavaScript frameworks like React and Vue.js, server-side development with Node.js, and database management with MongoDB and PostgreSQL.
+                    </p>
+                    <p class="text-gray-600 leading-relaxed">
+                        I thrive on turning complex problems into elegant, user-friendly solutions. Whether it's architecting scalable backend systems, optimizing database queries, or crafting intuitive user interfaces, I bring dedication and creativity to every project. My goal is to create impactful web experiences that are performant, secure, and maintainable.
+                    </p>
+                    <p class="text-gray-600 leading-relaxed">
+                        Beyond coding, I'm a strong advocate for continuous learning and best practices. I actively follow industry trends, experiment with new technologies, and contribute to open-source projects. Collaboration and clear communication are key aspects of my approach to development, ensuring successful outcomes for every team I work with.
+                    </p>
+                    <div class="flex flex-wrap gap-4 pt-4">
+                        <div class="flex items-center gap-2">
+                            <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                            <span class="text-gray-700 font-medium">5+ Years Experience</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                            <span class="text-gray-700 font-medium">50+ Projects Delivered</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                            <span class="text-gray-700 font-medium">Clean Code Advocate</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 gap-6 animate-fade-in-up animation-delay-400">
+                    <div class="bg-gradient-to-br from-blue-50 to-blue-100 p-6 rounded-xl shadow-md">
+                        <div class="text-4xl font-bold text-blue-600 mb-2">100+</div>
+                        <div class="text-gray-700 font-medium">Commits This Month</div>
+                    </div>
+                    <div class="bg-gradient-to-br from-purple-50 to-purple-100 p-6 rounded-xl shadow-md">
+                        <div class="text-4xl font-bold text-purple-600 mb-2">15+</div>
+                        <div class="text-gray-700 font-medium">Technologies Mastered</div>
+                    </div>
+                    <div class="bg-gradient-to-br from-indigo-50 to-indigo-100 p-6 rounded-xl shadow-md">
+                        <div class="text-4xl font-bold text-indigo-600 mb-2">24/7</div>
+                        <div class="text-gray-700 font-medium">Learning Mindset</div>
+                    </div>
+                    <div class="bg-gradient-to-br from-pink-50 to-pink-100 p-6 rounded-xl shadow-md">
+                        <div class="text-4xl font-bold text-pink-600 mb-2">∞</div>
+                        <div class="text-gray-700 font-medium">Passion for Code</div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer (Copied from index.html) -->
+    <footer class="bg-gray-800 text-white py-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p>&copy; <span id="year"></span> Soufiane. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when a link is clicked
+        const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+        mobileMenuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Set current year in footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>

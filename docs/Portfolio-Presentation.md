@@ -1,5 +1,5 @@
 ---
-marp: true
+marp: false
 theme: default
 paginate: true
 title: Developer Portfolio Mini-Site Analysis
@@ -30,7 +30,7 @@ style: |
 - **Objective**: Profile –  Projects – Contact
 - **For**: Ben Yekhlef Anouar
 - **Users**: Recruiters – Clients – Students
-- **Pages**: Home – Projects – Details – About
+- **Pages**: Home – Projects – Details – About - Skills - Contact
 - **Design**: Clean – Responsive – blue and white for colors
 
 ---
@@ -43,6 +43,12 @@ style: |
 ## Conception: Schema
 
 ![Schema](imgs/conception.png)
+
+---
+
+## Conception: Class Diagram
+
+![Class Diagram](imgs/classDiagram.png)
 
 ---
 

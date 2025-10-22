@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soufiane - Project Details</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .animate-fade-in-up {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        .animate-fade-in {
+            animation: fadeIn 1s ease-out forwards;
+        }
+
+        .animate-slide-in-left {
+            animation: slideInLeft 0.8s ease-out forwards;
+        }
+
+        .animation-delay-200 {
+            animation-delay: 0.2s;
+            opacity: 0;
+        }
+
+        .animation-delay-400 {
+            animation-delay: 0.4s;
+            opacity: 0;
+        }
+
+        .animation-delay-600 {
+            animation-delay: 0.6s;
+            opacity: 0;
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .card-hover {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .card-hover:hover {
+            transform: translateY(-8px);
+        }
+
+        .skill-badge {
+            transition: all 0.3s ease;
+        }
+
+        .skill-badge:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 25px -5px rgba(102, 126, 234, 0.3);
+        }
+
+        .nav-link {
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .section-visible {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 pt-16">
+    
+    <!-- Navigation (Copied from index.html) -->
+    <nav class="fixed top-0 w-full bg-white/90 backdrop-blur-md shadow-sm z-50 animate-fade-in">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <a href="index.html" class="text-2xl font-bold gradient-text">Soufiane</a>
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="nav-link text-gray-700 hover:text-blue-600 font-medium">Home</a>
+                    <a href="about.html" class="nav-link text-gray-700 hover:text-blue-600 font-medium">About</a>
+                    <a href="projects.html" class="nav-link text-blue-600 font-medium border-b-2 border-blue-600">Projects</a>
+                   
+                </div>
+                <button id="mobile-menu-btn" class="md:hidden text-gray-700">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
+            <div class="px-4 py-3 space-y-3">
+                <a href="index.html" class="block text-gray-700 hover:text-blue-600 font-medium">Home</a>
+                <a href="about.html" class="block text-gray-700 hover:text-blue-600 font-medium">About</a>
+                <a href="projects.html" class="block text-blue-600 font-medium">Projects</a>
+                
+            </div>
+        </div>
+    </nav>
+
+    <!-- Project Details Section -->
+    <section class="py-20 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <a href="projects.html" class="inline-flex items-center text-blue-600 hover:text-blue-700 mb-8 animate-fade-in-up">
+                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+                </svg>
+                Back to Projects
+            </a>
+            
+            <h1 id="project-title" class="text-4xl md:text-5xl font-bold text-gray-900 mb-6 animate-fade-in-up animation-delay-200">
+                Project Title Placeholder
+            </h1>
+            <p id="project-tagline" class="text-xl text-gray-600 mb-8 animate-fade-in-up animation-delay-400">
+                A brief, engaging description of the project.
+            </p>
+
+            <div class="mb-10 animate-fade-in-up animation-delay-600">
+                <img id="project-image" src="https://via.placeholder.com/800x450/667eea/ffffff?text=Project+Image" alt="Project Thumbnail" class="w-full h-auto rounded-lg shadow-lg">
+            </div>
+
+            <div class="space-y-8">
+                <div>
+                    <h2 class="text-3xl font-bold text-gray-900 mb-4">Overview</h2>
+                    <p id="project-overview" class="text-lg text-gray-600 leading-relaxed">
+                        This is where a detailed overview of the project would go. Explain the problem it solves, its main features, and the goals achieved.
+                        The E-Commerce Platform project was developed to provide a robust online shopping experience, featuring secure payment processing, comprehensive product management, and an intuitive user interface.
+                        It aims to offer a seamless shopping journey for customers and efficient operational tools for administrators.
+                    </p>
+                </div>
+
+                <div>
+                    <h2 class="text-3xl font-bold text-gray-900 mb-4">Technologies Used</h2>
+                    <div id="project-tech-stack" class="flex flex-wrap gap-3">
+                        <span class="px-4 py-2 bg-blue-100 text-blue-700 rounded-full font-medium shadow-sm">React</span>
+                        <span class="px-4 py-2 bg-blue-100 text-blue-700 rounded-full font-medium shadow-sm">Node.js</span>
+                        <span class="px-4 py-2 bg-blue-100 text-blue-700 rounded-full font-medium shadow-sm">Express.js</span>
+                        <span class="px-4 py-2 bg-blue-100 text-blue-700 rounded-full font-medium shadow-sm">MongoDB</span>
+                        <span class="px-4 py-2 bg-blue-100 text-blue-700 rounded-full font-medium shadow-sm">Stripe API</span>
+                        <span class="px-4 py-2 bg-blue-100 text-blue-700 rounded-full font-medium shadow-sm">JWT Authentication</span>
+                    </div>
+                </div>
+
+                <div>
+                    <h2 class="text-3xl font-bold text-gray-900 mb-4">Key Features</h2>
+                    <ul id="project-features" class="list-disc list-inside text-lg text-gray-600 space-y-2 ml-4">
+                        <li>User authentication and authorization (login, register, roles)</li>
+                        <li>Product catalog with search, filter, and sorting functionalities</li>
+                        <li>Shopping cart and checkout process with secure payment gateway integration</li>
+                        <li>Admin dashboard for product, order, and user management</li>
+                        <li>Responsive design for seamless experience across devices</li>
+                    </ul>
+                </div>
+
+                <div class="flex flex-col sm:flex-row gap-4 pt-6">
+                    <a id="project-demo-link" href="#" target="_blank" class="px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 flex items-center justify-center">
+                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 10l-2 1m0 0l-2-1m2 1v4m-4 0h8m-4 0a9 9 0 110-18 9 9 0 010 18z"></path>
+                        </svg>
+                        View Live Demo
+                    </a>
+                    <a id="project-github-link" href="#" target="_blank" class="px-8 py-4 bg-white text-gray-700 font-semibold rounded-lg shadow-lg hover:shadow-xl border-2 border-gray-200 hover:border-blue-600 transform hover:scale-105 transition-all duration-300 flex items-center justify-center">
+                        <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                        </svg>
+                        View on GitHub
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer (Copied from index.html) -->
+    <footer class="bg-gray-800 text-white py-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p>&copy; <span id="year"></span> Soufiane. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when a link is clicked
+        const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+        mobileMenuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Set current year in footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // --- Dynamic Project Loading (Basic Example) ---
+        const projectsData = {
+            "ecommerce": {
+                title: "E-Commerce Platform",
+                tagline: "A full-stack e-commerce solution for modern businesses.",
+                image: "https://via.placeholder.com/800x450/667eea/ffffff?text=E-Commerce+Platform",
+                overview: "This E-Commerce Platform project was developed to provide a robust online shopping experience, featuring secure payment processing, comprehensive product management, and an intuitive user interface. It aims to offer a seamless shopping journey for customers and efficient operational tools for administrators. Key aspects included secure authentication, scalable product listings, and real-time inventory updates.",
+                techStack: ["React", "Node.js", "Express.js", "MongoDB", "Stripe API", "JWT Authentication", "Tailwind CSS"],
+                features: [
+                    "User authentication and authorization (login, register, roles)",
+                    "Product catalog with search, filter, and sorting functionalities",
+                    "Shopping cart and checkout process with secure payment gateway integration",
+                    "Admin dashboard for product, order, and user management",
+                    "Responsive design for seamless experience across devices",
+                    "Order history and tracking for users"
+                ],
+                demoLink: "#", // Replace with actual demo link
+                githubLink: "#" // Replace with actual GitHub link
+            },
+            "analytics": {
+                title: "Analytics Dashboard",
+                tagline: "Visualize your data with real-time insights and custom reports.",
+                image: "https://via.placeholder.com/800x450/764ba2/ffffff?text=Analytics+Dashboard",
+                overview: "The Analytics Dashboard is a sophisticated data visualization platform designed for businesses to gain actionable insights from their data. It features interactive charts, customizable reports, and robust data export capabilities. The primary goal was to create a user-friendly interface that simplifies complex data analysis and supports informed decision-making.",
+                techStack: ["Vue.js", "Chart.js", "Firebase", "Node.js", "PostgreSQL", "Google Cloud Functions"],
+                features: [
+                    "Real-time data updates",
+                    "Interactive and customizable charts (bar, line, pie)",
+                    "User-specific dashboards",
+                    "Data filtering and aggregation",
+                    "Secure data storage and access control",
+                    "CSV/PDF data export"
+                ],
+                demoLink: "#",
+                githubLink: "#"
+            },
+            "social-api": {
+                title: "Social Media API",
+                tagline: "A robust backend API powering social media interactions.",
+                image: "https://via.placeholder.com/800x450/4CAF50/ffffff?text=Social+Media+API",
+                overview: "This project involved building a comprehensive backend API for a social media application. It handles core functionalities such as user authentication, profile management, post creation, comments, likes, and followers. The API is designed for high performance and scalability, ensuring smooth operation for a growing user base.",
+                techStack: ["Node.js", "Express", "PostgreSQL", "Sequelize ORM", "JWT Authentication", "AWS S3 (for media storage)"],
+                features: [
+                    "User authentication and authorization (register, login, logout)",
+                    "User profiles with bio, profile picture, and follower/following count",
+                    "Create, read, update, delete (CRUD) operations for posts",
+                    "Commenting and liking functionality for posts",
+                    "Follow/unfollow user functionality",
+                    "Media upload and management (images, videos)"
+                ],
+                demoLink: "#",
+                githubLink: "#"
+            },
+            "blog-cms": {
+                title: "Blog Content Management",
+                tagline: "An intuitive CMS for effortless blog content creation and management.",
+                image: "https://via.placeholder.com/800x450/FFC107/ffffff?text=Blog+CMS",
+                overview: "This project is a Content Management System (CMS) specifically tailored for managing blog posts. It provides a user-friendly interface for creating, editing, and publishing articles, organizing them into categories, and moderating user comments. Built with Django, it emphasizes ease of use for content creators and robust performance.",
+                techStack: ["Django", "Python", "SQLite (development)", "PostgreSQL (production)", "CKEditor (Rich Text)"],
+                features: [
+                    "User authentication for authors and administrators",
+                    "Rich text editor for creating and formatting blog posts",
+                    "Category management for organizing articles",
+                    "Comment moderation system",
+                    "Search functionality for blog posts",
+                    "Draft and publish post states"
+                ],
+                demoLink: "#",
+                githubLink: "#"
+            },
+            "task-manager": {
+                title: "Task Management App",
+                tagline: "Collaborate and organize your tasks efficiently in real-time.",
+                image: "https://via.placeholder.com/800x450/F44336/ffffff?text=Task+Manager+App",
+                overview: "The Task Management App is a collaborative tool designed to help teams and individuals organize their work effectively. It features real-time updates, customizable boards, and user roles to streamline project workflows. The application aims to improve productivity and foster better team communication.",
+                techStack: ["React", "Firebase (Firestore, Authentication)", "Redux Toolkit", "Tailwind CSS", "React-beautiful-dnd"],
+                features: [
+                    "User authentication and profile management",
+                    "Create and manage multiple task boards",
+                    "Drag-and-drop task reordering",
+                    "Assign tasks to team members with due dates",
+                    "Real-time collaboration across multiple users",
+                    "Task filtering and search"
+                ],
+                demoLink: "#",
+                githubLink: "#"
+            },
+            "portfolio-v2": {
+                title: "Portfolio Website V2",
+                tagline: "My second iteration of a personal portfolio, focused on modern design and UX.",
+                image: "https://via.placeholder.com/800x450/3F51B5/ffffff?text=Portfolio+V2",
+                overview: "This project represents the second version of my personal portfolio website. The primary goal was to enhance the user experience with a more modern, clean design and improved navigation. It showcases my updated skills and projects, providing an interactive and visually appealing representation of my work as a Full Stack Developer.",
+                techStack: ["HTML5", "CSS3", "JavaScript", "Tailwind CSS", "Figma (Design)"],
+                features: [
+                    "Responsive and mobile-first design",
+                    "Smooth scrolling and subtle animations",
+                    "Dedicated pages for About, Projects, and Contact",
+                    "Clean and readable code structure",
+                    "Consistent branding and color palette",
+                    "Easy navigation with sticky header"
+                ],
+                demoLink: "#", // This would be the current site's URL
+                githubLink: "#"
+            }
+        };
+
+        function getProjectDetails() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const projectId = urlParams.get('project');
+            const project = projectsData[projectId];
+
+            if (project) {
+                document.title = `Soufiane - ${project.title}`;
+                document.getElementById('project-title').textContent = project.title;
+                document.getElementById('project-tagline').textContent = project.tagline;
+                document.getElementById('project-image').src = project.image;
+                document.getElementById('project-image').alt = project.title;
+                document.getElementById('project-overview').textContent = project.overview;
+
+                // Populate Tech Stack
+                const techStackContainer = document.getElementById('project-tech-stack');
+                techStackContainer.innerHTML = ''; // Clear existing
+                project.techStack.forEach(tech => {
+                    const span = document.createElement('span');
+                    span.className = 'px-4 py-2 bg-blue-100 text-blue-700 rounded-full font-medium shadow-sm';
+                    span.textContent = tech;
+                    techStackContainer.appendChild(span);
+                });
+
+                // Populate Features
+                const featuresContainer = document.getElementById('project-features');
+                featuresContainer.innerHTML = ''; // Clear existing
+                project.features.forEach(feature => {
+                    const li = document.createElement('li');
+                    li.textContent = feature;
+                    featuresContainer.appendChild(li);
+                });
+
+                // Update links
+                document.getElementById('project-demo-link').href = project.demoLink;
+                document.getElementById('project-github-link').href = project.githubLink;
+
+            } else {
+                // Handle case where project ID is not found
+                document.getElementById('project-title').textContent = "Project Not Found";
+                document.getElementById('project-tagline').textContent = "The project you are looking for does not exist or has been moved.";
+                document.getElementById('project-image').src = "https://via.placeholder.com/800x450/cccccc/000000?text=Project+Not+Found";
+                document.getElementById('project-overview').textContent = "Please go back to the projects page to find other exciting work.";
+                document.getElementById('project-tech-stack').innerHTML = '';
+                document.getElementById('project-features').innerHTML = '';
+                document.getElementById('project-demo-link').classList.add('hidden');
+                document.getElementById('project-github-link').classList.add('hidden');
+            }
+        }
+
+        // Call the function when the page loads
+        window.addEventListener('DOMContentLoaded', getProjectDetails);
+    </script>
+</body>
+</html>
