@@ -1,260 +1,130 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Soufiane - My Projects</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        @keyframes slideInLeft {
-            from {
-                opacity: 0;
-                transform: translateX(-30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        .animate-fade-in-up {
-            animation: fadeInUp 0.8s ease-out forwards;
-        }
-
-        .animate-fade-in {
-            animation: fadeIn 1s ease-out forwards;
-        }
-
-        .animate-slide-in-left {
-            animation: slideInLeft 0.8s ease-out forwards;
-        }
-
-        .animation-delay-200 {
-            animation-delay: 0.2s;
-            opacity: 0;
-        }
-
-        .animation-delay-400 {
-            animation-delay: 0.4s;
-            opacity: 0;
-        }
-
-        .animation-delay-600 {
-            animation-delay: 0.6s;
-            opacity: 0;
-        }
-
-        .gradient-text {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .card-hover {
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .card-hover:hover {
-            transform: translateY(-8px);
-        }
-
-        .skill-badge {
-            transition: all 0.3s ease;
-        }
-
-        .skill-badge:hover {
-            transform: scale(1.05);
-            box-shadow: 0 10px 25px -5px rgba(102, 126, 234, 0.3);
-        }
-
-        .nav-link {
-            position: relative;
-        }
-
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            transition: width 0.3s ease;
-        }
-
-        .nav-link:hover::after {
-            width: 100%;
-        }
-
-        .section-visible {
-            animation: fadeInUp 0.8s ease-out forwards;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Soufiane - Projects</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .card-hover {
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .card-hover:hover {
+      transform: translateY(-8px);
+    }
+    .nav-link::after {
+      content: "";
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      transition: width 0.3s ease;
+    }
+    .nav-link:hover::after {
+      width: 100%;
+    }
+  </style>
 </head>
 <body class="bg-gray-50 text-gray-800 pt-16">
-    
-    <!-- Navigation (Copied from index.html, update active link if desired) -->
-    <nav class="fixed top-0 w-full bg-white/90 backdrop-blur-md shadow-sm z-50 animate-fade-in">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-16">
-                <a href="index.html" class="text-2xl font-bold gradient-text">Soufiane</a>
-                <div class="hidden md:flex space-x-8">
-                    <a href="index.html" class="nav-link text-gray-700 hover:text-blue-600 font-medium">Home</a>
-                    <a href="about.html" class="nav-link text-gray-700 hover:text-blue-600 font-medium">About</a>
-                    <a href="projects.html" class="nav-link text-blue-600 font-medium border-b-2 border-blue-600">Projects</a>
-                  
-                </div>
-                <button id="mobile-menu-btn" class="md:hidden text-gray-700">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                    </svg>
-                </button>
-            </div>
+
+  <!-- Navigation -->
+  <nav class="fixed top-0 w-full bg-white/90 backdrop-blur-md shadow-sm z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-16">
+        <a href="index.html" class="text-2xl font-bold gradient-text">Soufiane</a>
+        <div class="hidden md:flex space-x-8">
+          <a href="index.html" class="nav-link text-gray-700 hover:text-blue-600 font-medium">Home</a>
+          <a href="about.html" class="nav-link text-gray-700 hover:text-blue-600 font-medium">About</a>
+          <a href="projects.html" class="nav-link text-blue-600 font-medium border-b-2 border-blue-600">Projects</a>
         </div>
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
-            <div class="px-4 py-3 space-y-3">
-                <a href="index.html" class="block text-gray-700 hover:text-blue-600 font-medium">Home</a>
-                <a href="about.html" class="block text-gray-700 hover:text-blue-600 font-medium">About</a>
-                <a href="projects.html" class="block text-blue-600 font-medium">Projects</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Projects Grid -->
+  <section class="py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h1 class="text-4xl font-bold text-center mb-12">My Projects</h1>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+        <!-- Monzed -->
+        <div class="card-hover bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100">
+          <div class="h-48 overflow-hidden">
+            <img src="imgs/Monzed.png" alt="Monzed Project" class="w-full h-full object-cover transition-transform duration-300 hover:scale-105" />
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold text-gray-900 mb-2">Monzed</h3>
+            <p class="text-gray-600 mb-4">
+              A full-service creative development agency delivering high-impact digital experiences rapidly. I built responsive front-end components, integrated CMS functionality, and optimized workflows for faster delivery cycles.
+            </p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="px-3 py-1 bg-indigo-100 text-indigo-700 rounded-full text-xs font-medium">Next.js</span>
+              <span class="px-3 py-1 bg-indigo-100 text-indigo-700 rounded-full text-xs font-medium">Tailwind CSS</span>
+              <span class="px-3 py-1 bg-indigo-100 text-indigo-700 rounded-full text-xs font-medium">CMS</span>
             </div>
+            <a href="project-details.html?project=monzed" class="text-blue-600 hover:text-blue-700 font-medium flex items-center gap-1">
+              <span>View Details</span>
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+              </svg>
+            </a>
+          </div>
         </div>
-    </nav>
 
-    <!-- Projects Section -->
-    <section class="py-20 bg-gray-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4 animate-fade-in-up">My Projects</h1>
-                <div class="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto rounded-full animate-fade-in-up animation-delay-200"></div>
-                <p class="text-lg text-gray-600 mt-4 max-w-2xl mx-auto animate-fade-in-up animation-delay-400">Here are some of my recent projects that showcase my skills and passion for development. Click on a project to see more details.</p>
+        <!-- NetworkCoin AI -->
+        <div class="card-hover bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100">
+          <div class="h-48 overflow-hidden">
+            <img src="imgs/networkcoin.png" alt="NetworkCoin AI" class="w-full h-full object-cover transition-transform duration-300 hover:scale-105" />
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold text-gray-900 mb-2">NetworkCoin AI</h3>
+            <p class="text-gray-600 mb-4">
+              A blockchain-driven platform for decentralized AI computation and hyper-agent deployment. I built the dashboard UI, integrated real-time blockchain data, and improved UX for complex workflows.
+            </p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-xs font-medium">React</span>
+              <span class="px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-xs font-medium">Web3.js</span>
+              <span class="px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-xs font-medium">Tailwind CSS</span>
             </div>
+            <a href="project-details.html?project=networkcoin" class="text-blue-600 hover:text-blue-700 font-medium flex items-center gap-1">
+              <span>View Details</span>
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+              </svg>
+            </a>
+          </div>
+        </div>
 
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Project Card 1 -->
-                <div class="card-hover bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100">
-                    <div class="h-48 bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center">
-                        <svg class="w-20 h-20 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
-                        </svg>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-gray-900 mb-2">Digital goods Platform</h3>
-                        <p class="text-gray-600 mb-4">Full-stack Digital solution with payment integration, inventory management, and admin dashboard.</p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-xs font-medium">Javascript</span>
-                            <span class="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-xs font-medium">Php</span>
-                            <span class="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-xs font-medium">Supabase</span>
-                        </div>
-                        <div class="flex gap-4">
-                            <a href="project_details.html?project=ecommerce" class="text-blue-600 hover:text-blue-700 font-medium flex items-center gap-1">
-                                <span>View Details</span>
-                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
-                                </svg>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project Card 2 -->
-                <div class="card-hover bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100">
-                    <div class="h-48 bg-gradient-to-br from-purple-400 to-purple-600 flex items-center justify-center">
-                        <svg class="w-20 h-20 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
-                        </svg>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-gray-900 mb-2">Analytics Dashboard</h3>
-                        <p class="text-gray-600 mb-4">Real-time data visualization platform with interactive charts, custom reports, and data export features.</p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-xs font-medium">Vue.js</span>
-                            <span class="px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-xs font-medium">Chart.js</span>
-                            <span class="px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-xs font-medium">Supabase</span>
-                        </div>
-                        <div class="flex gap-4">
-                            <a href="project_details.html?project=analytics" class="text-blue-600 hover:text-blue-700 font-medium flex items-center gap-1">
-                                <span>View Details</span>
-                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
-                                </svg>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project Card 4 -->
-                <div class="card-hover bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100">
-                    <div class="h-48 bg-gradient-to-br from-red-400 to-red-600 flex items-center justify-center">
-                        <svg class="w-20 h-20 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                        </svg>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-gray-900 mb-2">Task Management App</h3>
-                        <p class="text-gray-600 mb-4">Collaborative task management application with real-time updates and user roles.</p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="px-3 py-1 bg-red-100 text-red-700 rounded-full text-xs font-medium">React</span>
-                            <span class="px-3 py-1 bg-red-100 text-red-700 rounded-full text-xs font-medium">Supabase</span>
-                            <span class="px-3 py-1 bg-red-100 text-red-700 rounded-full text-xs font-medium">Redux</span>
-                        </div>
-                        <div class="flex gap-4">
-                            <a href="project_details.html?project=task-manager" class="text-blue-600 hover:text-blue-700 font-medium flex items-center gap-1">
-                                <span>View Details</span>
-                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
-                                </svg>
-                            </a>
-                        </div>
-                    </div>
-                </div>
+        <!-- Starsky -->
+        <div class="card-hover bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100">
+          <div class="h-48 overflow-hidden">
+            <img src="imgs/Starsky.png" alt="Starsky Project" class="w-full h-full object-cover transition-transform duration-300 hover:scale-105" />
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold text-gray-900 mb-2">Starsky</h3>
+            <p class="text-gray-600 mb-4">
+              A no-code/low-code AI assistant that helps users build, deploy, and manage applications using natural language. I developed the front-end and optimized real-time AI interactions.
+            </p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-xs font-medium">Next.js</span>
+              <span class="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-xs font-medium">OpenAI API</span>
+              <span class="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-xs font-medium">Tailwind CSS</span>
             </div>
+            <a href="project-details.html?project=starsky" class="text-blue-600 hover:text-blue-700 font-medium flex items-center gap-1">
+              <span>View Details</span>
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+              </svg>
+            </a>
+          </div>
         </div>
-    </section>
 
-    <!-- Footer (Copied from index.html) -->
-    <footer class="bg-gray-800 text-white py-10">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <p>&copy; <span id="year"></span> Soufiane. All rights reserved.</p>
-        </div>
-    </footer>
+      </div>
+    </div>
+  </section>
 
-    <script>
-        // Mobile menu toggle
-        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-
-        mobileMenuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-
-        // Close mobile menu when a link is clicked
-        const mobileMenuLinks = mobileMenu.querySelectorAll('a');
-        mobileMenuLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
-            });
-        });
-
-        // Set current year in footer
-        document.getElementById('year').textContent = new Date().getFullYear();
-    </script>
 </body>
 </html>
