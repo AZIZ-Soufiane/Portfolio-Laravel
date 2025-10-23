@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Soufiane - Project Details</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @keyframes fadeInUp { from {opacity: 0; transform: translateY(30px);} to {opacity: 1; transform: translateY(0);} }
+    .animate-fade-in-up { animation: fadeInUp 0.8s ease-out forwards; }
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-800 pt-16">
+
+  <!-- Navigation -->
+  <nav class="fixed top-0 w-full bg-white/90 backdrop-blur-md shadow-sm z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-16">
+        <a href="index.html" class="text-2xl font-bold gradient-text">Soufiane</a>
+        <div class="hidden md:flex space-x-8">
+          <a href="index.html" class="text-gray-700 hover:text-blue-600 font-medium">Home</a>
+          <a href="about.html" class="text-gray-700 hover:text-blue-600 font-medium">About</a>
+          <a href="projects.html" class="text-blue-600 font-medium border-b-2 border-blue-600">Projects</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Project Details -->
+  <section class="py-20 bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <a href="projects.html" class="inline-flex items-center text-blue-600 hover:text-blue-700 mb-8 animate-fade-in-up">
+        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+        </svg>
+        Back to Projects
+      </a>
+
+      <h1 id="project-title" class="text-4xl font-bold text-gray-900 mb-4"></h1>
+      <p id="project-tagline" class="text-xl text-gray-600 mb-8"></p>
+
+      <div class="mb-10">
+        <img id="project-image" src="" alt="Project Image" class="w-full rounded-lg shadow-lg" />
+      </div>
+
+      <div class="space-y-8">
+        <div>
+          <h2 class="text-3xl font-bold mb-4">Overview</h2>
+          <p id="project-overview" class="text-lg text-gray-600 leading-relaxed"></p>
+        </div>
+
+        <div>
+          <h2 class="text-3xl font-bold mb-4">Technologies Used</h2>
+          <div id="project-tech-stack" class="flex flex-wrap gap-3"></div>
+        </div>
+
+        <div>
+          <h2 class="text-3xl font-bold mb-4">Key Features</h2>
+          <ul id="project-features" class="list-disc list-inside text-lg text-gray-600 space-y-2 ml-4"></ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="bg-gray-800 text-white py-8 text-center">
+    <p>&copy; <span id="year"></span> Soufiane. All rights reserved.</p>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const projectsData = {
+      monzed: {
+        title: "Monzed",
+        tagline: "A creative digital agency delivering high-impact experiences rapidly.",
+        image: "imgs/Monzed.png",
+        overview: "Monzed is a full-service creative development agency built to design and deliver high-impact digital experiences in weeks—not months. I led the front-end development, implemented modular CMS integration, and optimized workflows for faster delivery.",
+        techStack: ["Next.js", "Tailwind CSS", "Vercel", "CMS Integration"],
+        features: [
+          "Responsive UI with reusable design components",
+          "CMS integration for real-time content updates",
+          "Optimized build pipelines for fast delivery",
+          "SEO-friendly architecture and high performance"
+        ]
+      },
+      networkcoin: {
+        title: "NetworkCoin AI",
+        tagline: "Blockchain meets AI — decentralized computation for intelligent agents.",
+        image: "imgs/networkcoin.png",
+        overview: "NetworkCoin AI is a blockchain-driven ecosystem enabling decentralized AI computation and hyper-agent deployment. I worked on UI/UX design, dashboard implementation, and integration with blockchain data to visualize real-time agent metrics.",
+        techStack: ["React", "Web3.js", "Tailwind CSS", "Ethers.js"],
+        features: [
+          "Real-time blockchain data visualization",
+          "Staking, rewards, and agent management dashboards",
+          "Clean, modern design for complex data presentation",
+          "Scalable architecture for future AI integrations"
+        ]
+      },
+      starsky: {
+        title: "Starsky",
+        tagline: "A no-code/low-code AI assistant that turns ideas into apps.",
+        image: "imgs/Starsky.png",
+        overview: "Starsky is a no-code/low-code AI assistant that helps developers and teams build, deploy, and manage software using natural language. I designed and developed the front-end experience, created automation flow interfaces, and connected AI-driven code generation systems.",
+        techStack: ["Next.js", "OpenAI API", "Tailwind CSS", "Node.js"],
+        features: [
+          "AI-powered no-code builder with visual workflows",
+          "Instant app deployment and live preview",
+          "Dynamic UI rendering from AI prompts",
+          "Seamless integration with APIs and databases"
+        ]
+      }
+    };
+
+    function getProjectDetails() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const projectId = urlParams.get("project");
+      const project = projectsData[projectId];
+
+      if (!project) return;
+
+      document.title = `Soufiane - ${project.title}`;
+      document.getElementById("project-title").textContent = project.title;
+      document.getElementById("project-tagline").textContent = project.tagline;
+      document.getElementById("project-image").src = project.image;
+      document.getElementById("project-overview").textContent = project.overview;
+
+      const techStack = document.getElementById("project-tech-stack");
+      project.techStack.forEach(t => {
+        const span = document.createElement("span");
+        span.className = "px-4 py-2 bg-blue-100 text-blue-700 rounded-full font-medium shadow-sm";
+        span.textContent = t;
+        techStack.appendChild(span);
+      });
+
+      const features = document.getElementById("project-features");
+      project.features.forEach(f => {
+        const li = document.createElement("li");
+        li.textContent = f;
+        features.appendChild(li);
+      });
+    }
+
+    window.addEventListener("DOMContentLoaded", getProjectDetails);
+  </script>
+</body>
+</html>
